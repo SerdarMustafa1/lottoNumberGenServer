@@ -1,4 +1,6 @@
 const express = require('express');
+const https = require('https');
+const fs = require('fs');
 const bodyParser = require('body-parser');
 const app = express();
 const db = require('./queries');
@@ -27,6 +29,14 @@ app.post('/testpost', urlencodedParser, function(req, res) {
 app.put('/plans/:id', db.updatePlan);
 //app.delete("/plans/:id", db.deletePlan);
 
+https.createServer(
+  {
+    key: fs.readFileSync('./key.pem'),
+    cert: fs.readFileSync('./cert.pem'),
+    passphrase: 'Blue01'
+  },
+  app
+);
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);
 });
