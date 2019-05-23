@@ -4,7 +4,7 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const app = express();
 const db = require('./queries');
-const port = 3000;
+const port = 8321;
 
 var urlencodedParser = bodyParser.urlencoded({ extended: true });
 
