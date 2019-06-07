@@ -1,3 +1,5 @@
+// No where near complete code. Got totally lost at this point.
+
 var wsClient = function() {
 	var Model, View, Controller;
 
